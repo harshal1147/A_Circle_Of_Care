@@ -12,7 +12,7 @@ Make sure you have:
 
 ---
 
-### Step 1: Clone the Repository
+Step 1: Clone the Repository
 Open your terminal or command prompt and clone the repository:
 ```bash
 git clone [https://github.com/](https://github.com/)<your-username>/<your-repo-name>.git
