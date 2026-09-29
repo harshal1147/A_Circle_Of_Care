@@ -1,0 +1,243 @@
+{% extends 'navbar.html' %}
+{% load static%}
+{% block content %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f3e5f5, #ede7f6);
+    color: #3e3e3e;
+    overflow-x: hidden;
+  }
+
+  /* Navbar */
+  .navbar {
+    background-color: #9575cd;
+  }
+
+  .navbar-brand,
+  .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #d1c4e9 !important;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(to bottom right, #d1c4e9, #f3e5f5);
+    border-radius: 20px;
+    margin: 30px auto;
+    max-width: 1200px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4a148c;
+    animation: slideDown 1.5s ease-out;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    margin-top: 15px;
+    color: #5e35b1;
+    animation: fadeInUp 2s ease-in-out;
+  }
+
+  /* Mission */
+  .mission {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 2s ease;
+  }
+
+  .mission h2 {
+    color: #6a1b9a;
+    font-weight: bold;
+  }
+
+  .mission p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  /* Features */
+  .features {
+    margin: 60px auto;
+    max-width: 1100px;
+    text-align: center;
+  }
+
+  .feature-card {
+    background: #f8f6fb;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    color: #9575cd;
+    margin-bottom: 15px;
+  }
+
+  .feature-card h4 {
+    color: #4a148c;
+    font-weight: bold;
+  }
+
+  /* Team/Closing */
+  .closing {
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  .closing h3 {
+    color: #6a1b9a;
+    font-weight: bold;
+  }
+
+  .closing p {
+    font-size: 1.1rem;
+    color: #5e35b1;
+  }
+
+  /* Footer */
+  footer {
+    background-color: #9575cd;
+    color: white;
+    padding: 30px 0;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  footer a {
+    color: #e1bee7;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  footer a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #d1c4e9;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>About FamilyConnect 💜</h1>
+    <p>Connecting families through feedback, communication, and AI-powered happiness.</p>
+  </section>
+
+  <!-- Mission -->
+  <section class="mission">
+    <h2>Our Mission</h2>
+    <p>
+      FamilyConnect was created with one purpose: to bring families closer together.
+      In today’s busy world, we often forget to share our thoughts and feelings with loved ones.
+      This platform helps families express themselves freely, listen to each other, and grow stronger bonds.
+      With the power of AI, we provide supportive suggestions to maintain harmony, happiness, and love at home.
+    </p>
+  </section>
+
+  <!-- Features -->
+  <section class="features container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h4>Share Feedback</h4>
+          <p>Express your thoughts and feelings openly with your family members in a safe space.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h4>AI Suggestions</h4>
+          <p>Receive supportive AI-based tips to resolve conflicts and spread positivity at home.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon">💜</div>
+          <h4>Stay Connected</h4>
+          <p>Strengthen family bonds through honest conversations and shared happiness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="closing">
+    <h3>We Believe in Family</h3>
+    <p>Every family is unique, and every voice matters. Let’s build happier homes together 💕.</p>
+  </section>
+
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+</body>
+
+{% include 'footer.html' %}
+{% endblock %}

@@ -1,0 +1,215 @@
+{% extends 'navbar.html' %}
+{% load static%}
+{% block content %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #f3e5f5, #ede7f6);
+        color: #3e3e3e;
+        overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+        background-color: #9575cd;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar-brand,
+    .nav-link {
+        color: #fff !important;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+        color: #d1c4e9 !important;
+    }
+
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 100px 20px;
+        background: linear-gradient(to bottom right, #d1c4e9, #f3e5f5);
+        border-radius: 20px;
+        margin: 30px auto;
+        max-width: 1200px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #4a148c;
+        animation: slideDown 1.5s ease-out;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-top: 15px;
+        color: #5e35b1;
+        animation: fadeInUp 2s ease-in-out;
+    }
+
+    .hero .btn {
+        margin-top: 20px;
+        background-color: #9575cd;
+        border: none;
+        color: #fff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(149, 117, 205, 0.5);
+    }
+
+    /* Cards */
+    .card {
+        border-radius: 15px;
+        background-color: #f8f6fb;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    .card:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(149, 117, 205, 0.4);
+    }
+
+    .card-title {
+        color: #6a1b9a;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #9575cd;
+        color: white;
+        padding: 30px 0;
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    footer a {
+        color: #e1bee7;
+        text-decoration: none;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #fff;
+        text-shadow: 0 0 8px #d1c4e9;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideDown {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            transform: translateY(40px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Scroll animation active class */
+    .show {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: all 1s ease-in-out;
+    }
+</style>
+
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to FamilyConnect 💜</h1>
+        <p>Share your thoughts, connect with your loved ones, and receive AI-powered suggestions for a happier family
+            life.</p>
+        <a href="{% url 'feedback' %}" class="btn btn-lg">Start Communication</a>
+    </section>
+
+    <!-- Content Cards -->
+    <div class="container my-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card p-3 animate">
+                    <div class="card-body">
+                        <h5 class="card-title">💌 Share Feedback</h5>
+                        <p class="card-text">Write your personal views and feelings in a safe family-only space designed
+                            for honesty and care.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 animate">
+                    <div class="card-body">
+                        <h5 class="card-title">🤝 Build Stronger Bonds</h5>
+                        <p class="card-text">Strengthen family love and understanding by sharing perspectives openly and
+                            respectfully.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 animate">
+                    <div class="card-body">
+                        <h5 class="card-title">💡 AI Happiness Tips</h5>
+                        <p class="card-text">Our AI helps with gentle suggestions to keep your family emotionally
+                            balanced together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+        // Scroll animation for cards
+        const cards = document.querySelectorAll(".animate");
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        });
+        cards.forEach(card => observer.observe(card));
+    </script>
+    {% include 'footer.html' %}
+    {% endblock %}
+</body>

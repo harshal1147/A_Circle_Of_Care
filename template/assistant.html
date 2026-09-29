@@ -1,0 +1,133 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block title %}AI Voice Assistant {% endblock %}
+
+{% block content %}
+<style>
+    :root {
+        --primary-purple: #9575cd;
+        --dark-purple: #4a148c;
+        --light-lavender: #f3e5f5;
+        --bg-gradient: linear-gradient(to right, #f3e5f5, #ede7f6);
+    }
+
+    body {
+        background: var(--bg-gradient);
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .assistant-container {
+        max-width: 700px;
+        margin: 60px auto;
+        text-align: center;
+        background: white;
+        padding: 50px;
+        border-radius: 30px;
+        box-shadow: 0 10px 30px rgba(74, 20, 140, 0.1);
+    }
+
+    /* Circular Orb with Slow Pulse effect */
+    .ai-orb {
+        width: 150px;
+        height: 150px;
+        background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+        border-radius: 50%;
+        margin: 0 auto 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3rem;
+        box-shadow: 0 0 20px rgba(149, 117, 205, 0.4);
+        /* Slow Pulse Animation */
+        animation: slowPulse 3s infinite ease-in-out;
+    }
+
+    @keyframes slowPulse {
+        0% { transform: scale(1); box-shadow: 0 0 20px rgba(149, 117, 205, 0.4); }
+        50% { transform: scale(1.08); box-shadow: 0 0 35px rgba(149, 117, 205, 0.6); }
+        100% { transform: scale(1); box-shadow: 0 0 20px rgba(149, 117, 205, 0.4); }
+    }
+
+    .btn-voice {
+        display: inline-block;
+        background-color: var(--dark-purple);
+        color: white;
+        border: none;
+        padding: 16px 45px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
+    }
+
+    .btn-voice:hover {
+        background-color: var(--primary-purple);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(74, 20, 140, 0.4);
+    }
+
+    .info-box {
+        background: #f8f6fb;
+        border-radius: 20px;
+        padding: 25px;
+        margin-top: 40px;
+        text-align: left;
+    }
+
+    .info-title {
+        font-weight: 700;
+        color: var(--dark-purple);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        font-size: 0.95rem;
+        color: #555;
+    }
+
+    .feature-list li {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: start;
+    }
+
+    .feature-list i {
+        color: var(--primary-purple);
+        margin-right: 12px;
+        margin-top: 4px;
+    }
+</style>
+
+<div class="container">
+    <div class="assistant-container">
+        <h2 class="fw-bold mb-3" style="color: var(--dark-purple);">AI Voice Assistant</h2>
+        <p class="text-muted mb-4">Experience seamless family support through our advanced voice interface.</p>
+
+        <div class="ai-orb">
+            <i class="fas fa-microphone"></i>
+        </div>
+
+        <a href="https://vapi.ai?demo=true&shareKey=d7194498-4340-498e-94ff-0161f412aba5&assistantId=d84788f1-b4ca-4a0b-a8ac-4a6b523b81e5" 
+           target="_blank" 
+           class="btn-voice">
+            Start Live Conversation
+        </a>
+
+        
+        <div class="mt-4 text-muted small">
+            <i class="fas fa-lock me-1"></i> Secure Connection via Vapi.ai
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

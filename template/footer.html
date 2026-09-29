@@ -1,0 +1,85 @@
+{% load static%}
+<footer class="text-center text-lg-start" style="background:#9575cd; color:white; margin-top: 50px;">
+    <div class="container p-4">
+        <div class="row">
+
+            <!-- Logo & About -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5 class="fw-bold">FamilyConnect 💜</h5>
+                <p>
+                    Strengthening family bonds through open communication and AI-powered happiness suggestions.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h6 class="fw-bold">Quick Links</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'index' %}" class="footer-link">Home</a></li>
+                    <li><a href="{% url 'feedback' %}" class="footer-link">Feedback</a></li>
+                    <li><a href="{% url 'aisuggestions' %}" class="footer-link">AI Suggestions</a></li>
+                    <li><a href="{% url 'about' %}" class="footer-link">About</a></li>
+                </ul>
+            </div>
+
+            <!-- Policies -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h6 class="fw-bold">Legal</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'terms' %}" class="footer-link">Terms & Conditions</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h6 class="fw-bold">Contact Us</h6>
+                <p>Email: <a href="mailto:support@familyconnect.com" class="footer-link">support@familyconnect.com</a>
+                </p>
+                <p>Follow us:</p>
+                <div>
+                    <a href="https://www.facebook.com/login/" class="me-3 footer-icon"><i
+                            class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/accounts/login/" class="me-3 footer-icon"><i
+                            class="bi bi-instagram"></i></a>
+                    <a href="https://twitter.com/login" class="footer-icon"><i class="bi bi-twitter"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="text-center py-3" style="background:#7e57c2;">
+        &copy; 2026 FamilyConnect | Built with 💜 for Families
+    </div>
+</footer>
+
+<!-- Extra Footer Styling -->
+<style>
+    .footer-link {
+        color: #e6e1f7;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+
+    .footer-icon {
+        color: #e6e1f7;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+    }
+
+    .footer-icon:hover {
+        color: white;
+    }
+</style>
+
+<!-- Bootstrap Icons CDN (Add in base.html head if not added) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+{% block content%}
+{%endblock%}

@@ -1,0 +1,124 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block content %}
+<title>Profile</title>
+<style>
+    body {
+        /* Consistent FamilyConnect Background */
+        background: linear-gradient(to right, #f3e5f5, #ede7f6);
+    }
+    .profile-card {
+        max-width: 400px;
+        margin: 50px auto;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        animation: fadeIn 1s ease-in-out;
+    }
+    .profile-header {
+        background: linear-gradient(to right, #9575cd, #7e57c2);
+        height: 150px;
+        position: relative;
+    }
+    .profile-img-container {
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .profile-img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        object-fit: cover;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+    }
+    .profile-body {
+        padding-top: 60px;
+        padding-bottom: 30px;
+        text-align: center;
+    }
+    .user-name {
+        color: #4a148c;
+        font-weight: bold;
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+        font-family: 'Segoe UI', sans-serif;
+    }
+    .user-email {
+        color: #7e57c2;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    .info-item {
+        margin: 10px 0;
+        color: #555;
+        font-size: 1rem;
+    }
+    .btn-logout {
+        margin-top: 20px;
+        background-color: #f44336;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        border: none;
+    }
+    .btn-logout:hover {
+        background-color: #d32f2f;
+        color: white;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="container">
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="profile-img-container">
+                {% if user.profile.image %}
+                    <img src="{{ user.profile.image.url }}" alt="{{ user.username }}" class="profile-img">
+                {% else %}
+                    <img src="https://placehold.co/150x150/9575cd/ffffff?text={{ user.username.0|upper }}" alt="Profile" class="profile-img">
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="profile-body">
+            <h2 class="user-name">
+                {% if user.first_name and user.last_name %}
+                    {{ user.first_name }} {{ user.last_name }}
+                {% else %}
+                    {{ user.username }}
+                {% endif %}
+            </h2>
+            <p class="user-email">{{ user.email }}</p>
+
+            <hr style="width: 50%; margin: 20px auto; border-color: #eee;">
+
+            <div class="info-item">
+                <strong>Member Since:</strong> {{ user.date_joined|date:"F d, Y" }}
+            </div>
+            
+            <div class="info-item">
+                <strong>Status:</strong> Active Member 💜
+            </div>
+
+            <br>
+            <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn-logout">Logout</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}
